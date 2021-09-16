@@ -1,2 +1,2 @@
-# blockchain-developer-bootcamp-final-project
+# Working on the idea
 Final Project for Consesys Bootcamp
