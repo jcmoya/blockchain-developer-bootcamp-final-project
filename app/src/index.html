@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <title>Warranty Activation</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+     
+    <div class="container-fluid" >
+      <div class="row content">
+        <div  class="col-lg-11" style="background-color:lavender">
+          <h1 style="color:blue"  class="text-center">Warranty of Products</h1>
+          <hr/>
+          <br/>
+           <!-- Element that loads until metamask is sync--> 
+          <div id="loader" align ="center">
+            <p id= "textLoader" class="text-center"></p>       
+            <img width = "100 " src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif">   
+          </div>
+         
+          <!-- Table elements --> 
+          <div id="content" style="display: none;">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Article</th>
+                  <th scope="col">Serial Number</th>
+                  <th scope="col">Warranty starts date</th>
+                  <th scope="col">Warranty ends date</th>
+                  <th scope="col">Buyer Address</th>  
+                </tr>
+              </thead>
+              <tbody id="productosResults">
+              </tbody>
+            </table>
+            <hr/>
+            <!-- Step for Adding a Warranty-->
+            <form onSubmit="App.anadirProducto(); return false">
+              <div class="form-group">
+                <label for="nombreProducto">Product Name</label>
+                <input type="text" class="form-control" id="nombreProducto">
+              </div>
+              <div class="form-group">
+                <label for="numSerie">Serial Number</label>
+                <input type="text" class="form-control" id="numSerie">
+              </div>
+              <button type="submit" class="btn btn-primary">Adding Product</button>      
+              <hr />                
+            </form>
+
+             <!-- Checking the Warranty status-->
+             <h3 style="color:blue" class="text-center">Check a Warranty</h3>
+              <form onSubmit="App.checkGarantia();return false">
+                <div class="form-group">
+                  <label for="numSerieToCheck">Check Serial Numner</label>
+                  <input class="form-control" id="numSerieToCheck">     
+                </div>
+                <button type="submit" class="btn btn-primary">Check</button>   
+                <h5 id="address" style="color:green">Address Select: </h5>                
+            </form>  
+          
+          </div> <!-- Table end --> 
+         
+          <div > <!-- LOG -->  
+            <h5 id="contentLog" style="color:green"></h5>
+          </div>       
+        </div>
+        <!-- Right side for Pausable Botton to see like a Log the Status--> 
+        <div class="col-lg-1 sidenav" id = "isOwner">
+            <div >
+              <h5 id = "textOwner">Are you Owner?</h5>
+              <div>
+                <button id="breakerBoton" onclick="App.pauseContract()" type="submit" class="btn btn-primary" >Pausable</button>    
+            </div>
+            <h6 id = "textStatus" style="color:green"></h6>
+              
+            </div>
+
+            
+        </div>
+      </div>      
+    </div>
+
+    <!-- Load jQuery, pto be possible use in Index.js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+    <script src="index.js"></script>
+  </body>
+</html>
