@@ -238,11 +238,11 @@ const App = {
            this.isPaused = response;
 
            if (this.isPaused){
-            $("#breakerBoton").html('Contract Active' );
+            $("#breakerBoton").html('Activate Contract' );
            
            } else{
 
-            $("#breakerBoton").html('Paused'  );
+            $("#breakerBoton").html('Pause Contract'  );
 
            }
            
@@ -272,7 +272,7 @@ const App = {
                 alert("isPause: "+ isPause + " _____ "+error);
             } else {
                 console.log("Contract Active");
-                alert("Es posible añadir productos. " + "\nTransacción:" +response);
+                alert("Is possible to add Products. " + "\nTransacción:" +response);
                 $('#submitProduct').attr("disabled", false);
                 $("#textStatus").html('Contract Active' );
             }
