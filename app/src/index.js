@@ -223,7 +223,7 @@ const App = {
                
     });
     
-    //managing Pause boton visivility
+    //managing Pause boton visivility, only owner can have the visivility
     if (this.account == myowner) {
         $('#breakerBoton').attr("disabled", false);
         $("#textOwner").append(' Sí' );
@@ -253,6 +253,7 @@ const App = {
 
            if (this.isPaused){
             $("#breakerBoton").html('Activar Contrato' );
+           
            } else{
 
             $("#breakerBoton").html('Pausar'  );
@@ -286,7 +287,7 @@ const App = {
             } else {
                 console.log("Contrato Activo");
                 alert("Es posible añadir productos. " + "\nTransacción:" +response);
-                 
+                $('#submitProduct').attr("disabled", false);
                 $("#textStatus").html('Contrato Activo' );
             }
         });
@@ -300,6 +301,7 @@ const App = {
                   alert(error);
               } else {
                   console.log("Contrato Pausado");
+                  $('#submitProduct').attr("disabled", true);
                   alert(" NO es posible añadir productos..." + "\nTransacción: "+response);
                   $("#textStatus").html('Contrato Pausado' );
                

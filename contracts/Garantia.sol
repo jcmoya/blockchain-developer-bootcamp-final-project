@@ -32,11 +32,11 @@ contract Garantia is Ownable, Pausable{
     // Counter of the number of Products that are added to the contract
     uint public  productosCount;
     
-    // Mapping, given an uint stored a Producto
+    // Mapping: given an uint stored a Producto
     mapping (uint => Producto) public productos;
-    // Mapping, given a String, stored q booleano
+    // Mapping: given a String, stored a booleano
     mapping (string => bool)  numSeries;
-    //Mapping, given a String stored a uint
+    //Mapping: given a String stored a uint
     mapping (string => uint)  numSeriesCheck;
 
 /* @dev To add a product warranty to the contract
@@ -187,5 +187,16 @@ function getFechaFin(string memory _numSerie) public  view returns ( uint) {
     return productos[numSeriesCheck[_numSerie]].fechaFin;
  
 }
+
+
+ /// Pause the contract //Call _pause fucntion on Pausable.sol contract
+    function pause() public  onlyOwner{
+        _pause(); 
+    }
+
+    /// Unpause the contract //Call _unpause fucntion on Pausable.sol contract
+    function unpause() public  onlyOwner{
+        _unpause();
+    }
 
 }
