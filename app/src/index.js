@@ -128,7 +128,7 @@ const App = {
       this.cargarTabla();
       this.refreshValores();
       
-    //GManaging possible errors: Pause Contrat, Is not possible to indroduce any field
+    //Managing possible errors: Pause Contract, Is not possible to indroduce any field
     } catch (error) {
 
       //If is in Pause
@@ -146,8 +146,8 @@ const App = {
 
   },
 
+  //* Check if Warranty is Active or not. Will expired after 2 Years
   //*
-  //*Comprueba que la Garantia sigue o no Activa tras 2 años
   //*  
 
   checkGarantia: async function() {
@@ -182,21 +182,7 @@ const App = {
        }
        
     }
-    /*
-    await checkGarantia(numSerie).call(function(error, response){
-
-      if (error) {
-        //this.refreshValores();
-          //console.error(error);
-          alert("Garantia no valida: "+ numSerie + " - No existe " + error);
-          
-      } else {
-          isActive = response;
-
-          alert("La Garantia para: "+ numSerie + " - Esta " +isActive);
-      }
-             
-  });*/
+   
  
   //this.refreshValores();
    
@@ -223,10 +209,10 @@ const App = {
                
     });
     
-    //managing Pause boton visivility, only owner can have the visivility
+    //managing Pause boton visivility, only owner can have the visivility to Pause Contract
     if (this.account == myowner) {
         $('#breakerBoton').attr("disabled", false);
-        $("#textOwner").append(' Sí' );
+        $("#textOwner").append('Yes' );
 
     } else {
       $('#breakerBoton').attr("disabled", true);
@@ -237,7 +223,7 @@ const App = {
 
   
   //*
-  //*Using the function"pasue" fromm Contract Pausable from Open Zeppelin 
+  //*Using the function"pause" from Contract Pausable from Open Zeppelin 
   //*to be able to read the contract.
   //*
   statusContract: async function(message) {
@@ -252,15 +238,15 @@ const App = {
            this.isPaused = response;
 
            if (this.isPaused){
-            $("#breakerBoton").html('Activar Contrato' );
+            $("#breakerBoton").html('Contract Active' );
            
            } else{
 
-            $("#breakerBoton").html('Pausar'  );
+            $("#breakerBoton").html('Paused'  );
 
            }
            
-            console.log("Contrato Pause: " + this.isPaused);
+            console.log("Contract Pause: " + this.isPaused);
             
         }
         this.isPaused = response;
@@ -285,10 +271,10 @@ const App = {
                 console.log("Unpause Error: ", error);
                 alert("isPause: "+ isPause + " _____ "+error);
             } else {
-                console.log("Contrato Activo");
+                console.log("Contract Active");
                 alert("Es posible añadir productos. " + "\nTransacción:" +response);
                 $('#submitProduct').attr("disabled", false);
-                $("#textStatus").html('Contrato Activo' );
+                $("#textStatus").html('Contract Active' );
             }
         });
 
@@ -300,10 +286,10 @@ const App = {
                   console.error("Pause Error: ", error);
                   alert(error);
               } else {
-                  console.log("Contrato Pausado");
+                  console.log("Contract Paused");
                   $('#submitProduct').attr("disabled", true);
-                  alert(" NO es posible añadir productos..." + "\nTransacción: "+response);
-                  $("#textStatus").html('Contrato Pausado' );
+                  alert(" Is not possible to add Products..." + "\nTransacción: "+response);
+                  $("#textStatus").html('Contract is Paused' );
                
               }
         }); 
@@ -338,7 +324,7 @@ window.addEventListener("load", function() {
     App.web3 = new Web3(window.ethereum);
     window.ethereum.enable(); // get permission to access accounts obtener 
     const status = document.getElementById("contentLog");
-    status.innerHTML = "Conectado a Metamask";
+    status.innerHTML = "Conected to Metamask";
     
   } else {
     console.warn(
