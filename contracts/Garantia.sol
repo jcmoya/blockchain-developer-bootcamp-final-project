@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.10;
 
-// Use of libraries:
+// Using next libraries:
 
 // Ownable: to be able to save the address of the one who deploys the contract Open Zeppelin and Library Utils to be able to format the Date
 // Pausable: Emergency stop mechanism of the contract, for a possible damage reduction.
-// Utils: used to be able to format dates.
+// Utils: used to be able to give the format dates.
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 import "./Utils.sol";
@@ -49,7 +49,7 @@ contract Garantia is Ownable, Pausable{
         // _ nombre and _numSerie must not be empty and meet a minimum. Improvement, to be able to verify the serial number, and say that it is real.
 	    require(
             bytes(_nombre).length > 0 && bytes(_numSerie).length > 0,
-            "ou must introduce a Name and a Serial Number"
+            "You must introduce a Name and a Serial Number"
 	        );
 
         //The serial number should not be already in the list
@@ -86,7 +86,8 @@ contract Garantia is Ownable, Pausable{
       
     }
 
-/* @dev Contract constructor, only is called once, by the person who deploys the contract
+/* @dev Contract constructor, only  is called once, by the person who deploys the contract
+// Initially are 2 Dummies Products Load
  */
  
 constructor ()  {
@@ -120,10 +121,10 @@ function checkGarantia(string memory _numSerie) public  view returns ( string me
     require(numSeries[_numSerie], "Serial numner no valid, please introduce an existence one");
 
     if (productos[numSeriesCheck[_numSerie]].fechaFin > block.timestamp){
-        return "Activa";//Activa
+        return "Active";//Activa
     }else {
 
-        return "Caducada";//Caducada
+        return "Expired";//Caducada
     }
   
 }
