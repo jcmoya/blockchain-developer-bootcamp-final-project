@@ -9,16 +9,50 @@ Activating the guarantee from the moment the product is uploaded until the next 
 
 In the Apllication there are 3 diferents areas to understand:
 
-1 Main area, where the table with all the Uploaded Products are visible. And the option to Upload a Product using a Serial Number and a Name
+1 Main area, where the table with all the Uploaded Products are visible. And the option to Upload a Product using a Serial Number and a Name.
 
-2 Check Warranty Area, where is possible to check if an existing Product is Still under the 2 years Warranty. 
-In the Bottom of the Screen there is a Log view to know the Address that is conected to the Dapp, and see some Status during interaction.
+2 Check Warranty Area, where is possible to check if an existing Product is Still under the 2 years Warranty Acive or Expired.
+In the Bottom of the Screen there is also a Log view to know the Address that is conected to the Dapp, and see some Status during Contract interaction.
 
-3 Circuit Breaker, Paused and Unpaused the contract, so no one can upload any Product to the contract in case any security reason, and Activate it again if need it. This option only the Owner of the contract can do it. You can see a log message to check if you are the Owner or not.
+3 Circuit Breaker, Paused and Unpaused the contract, is available on the right upper side, so no one can upload any Product to the contract in case any security reason, and Activate it again if need it. This option only the Owner of the contract can do it. You can see a log message to check if you are the Owner or not.
+
+# Directory Structure
+
+📦blockchain-developer-bootcamp-final-project
+   ┣ 📂app
+ ┃ ┣ 📂src
+ ┃ ┃ ┣ 📜index.html
+ ┃ ┃ ┗ 📜index.js
+ ┃ ┣ 📜package-lock.json
+ ┃ ┣ 📜package.json
+ ┃ ┗ 📜webpack.config.js
+ ┣ 📂build
+ ┃ ┗ 📂contracts
+ ┃ ┃ ┣ 📜Context.json
+ ┃ ┃ ┣ 📜Garantia.json
+ ┃ ┃ ┣ 📜Migrations.json
+ ┃ ┃ ┣ 📜Ownable.json
+ ┃ ┃ ┣ 📜Pausable.json
+ ┃ ┃ ┗ 📜Utils.json
+ ┣ 📂contracts
+ ┃ ┣ 📜Garantia.sol
+ ┃ ┣ 📜Migrations.sol
+ ┃ ┗ 📜Utils.sol
+ ┣ 📂migrations
+ ┃ ┣ 📜1_initial_migration.js
+ ┃ ┗ 📜2_deploy_contracts.js
+ ┣ 📂test
+ ┃ ┃ ┗ 📜garantia.js
+ ┣ 📜README.md
+ ┣ 📜avoiding_common_attacks.md
+ ┣ 📜deployed_address.txt
+ ┣ 📜design_pattern_decisions.md
+ ┣ 📜package-lock.json
+ ┣ 📜package.json
+ ┗ 📜truffle-config.js
 
 
-
- 
+ Video showing Dapp:
 
 # Testing the DApp in Rinkeby Network
 
@@ -27,7 +61,7 @@ The Front end is deployed on a Repository using Github Pages
 https://jcmoya.github.io/frontEnd_Dapp_Warranty/
 
 
-The Smart Contract is available it was deployed in the Rinkeby network using Infura,  address 0xxxxx
+The Smart Contract is available and deployed in the Rinkeby network using Infura,  address 0xxxxx
 
 
 # Steps for testing the DApp in a Local enviorment
@@ -40,24 +74,23 @@ Truffle: To Deploy Smart Contract.
 Ganache: For using a Local Blockchain and do some tests.
 Metamask: To interact with the BLockchaing and be able to sing transactions
 
-## 1. Clone the project
+**1. Clone the project**
+
 `https://github.com/jcmoya/blockchain-developer-bootcamp-final-project`
 
-(Node Modules has been deleted to avoid upload it to Git)
 
-## 2. Install dependencies in case are need it
+**2. Install open Zeppeling libraries in case are need it**
 ```
-$ npm install
+$ npm install @openzeppelin/contracts 
 ```
 
-## 3. Starts Ganache
-
+**3. Starts Ganache**
 Run Ganache
 ```
 ./ganache-2.5.4-linux-x86_64.AppImage
 ```
 
-## 4. Using Open Zeppelin Libraries
+**4. Using Open Zeppelin Libraries**
 
 Install Open Zeppelin Dependencies inside the proyect folder in this way:
 
@@ -65,31 +98,23 @@ Install Open Zeppelin Dependencies inside the proyect folder in this way:
  npm install @openzeppelin/contracts
 
 ```
-Also i used an existing librarie and is already modified to use only some specific functions. This librarie is inside my main contract, as you can see when the contract is deployed in the next step:
 
-  Linking
-   -------
-   * Contract: Garantia <--> Library: Utils (at address: 0x79efD586841e42C0973535056927d9F2e9BDFFbb)
-```
+**4. Compile and Deploy contacts**
 
-## 4. Compile and Deploy contacts
-
-In the project folder use, Compile contracts:
-
-`$ truffle compile` 
 
 Deploy contract in Ganache: 
 
-`$ truffle migrate --reset` 
+`$ truffle migrate ` 
 
-## 5. Arrancar Front End
-From folder app, right on a terminal:
+**5. Arrancar Front End**
+In folder app, right on a terminal and write next:
+`$ npm install`
 `$ npm run dev`
-```
 
-#Test
 
-There are 5 Tests done for the main contract, using truffle test in a terminal:
+# Test
+
+There are 5 Tests done for the main contract, using truffle test in a terminal will launch:
 
 ```
   Contract: Garantia

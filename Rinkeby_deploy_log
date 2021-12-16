@@ -1,0 +1,165 @@
+jules@jules:~/Escritorio/Github/blockchain-developer-bootcamp-final-project$ sudo truffle migrate --network rinkeby --reset --compile-all
+[sudo] contraseña para jules: 
+
+Compiling your contracts...
+===========================
+✔ Fetching solc version list from solc-bin. Attempt #1
+> Compiling ./contracts/Garantia.sol
+> Compiling ./contracts/Migrations.sol
+> Compiling ./contracts/Utils.sol
+> Compiling @openzeppelin/contracts/access/Ownable.sol
+> Compiling @openzeppelin/contracts/security/Pausable.sol
+> Compiling @openzeppelin/contracts/utils/Context.sol
+✔ Fetching solc version list from solc-bin. Attempt #1
+> Artifacts written to /home/jules/Escritorio/Github/blockchain-developer-bootcamp-final-project/build/contracts
+> Compiled successfully using:
+   - solc: 0.8.10+commit.fc410830.Emscripten.clang
+
+
+
+Migrations dry-run (simulation)
+===============================
+> Network name:    'rinkeby-fork'
+> Network id:      4
+> Block gas limit: 29999886 (0x1c9c30e)
+
+
+1_initial_migration.js
+======================
+
+   Replacing 'Migrations'
+   ----------------------
+   > block number:        9825043
+   > block timestamp:     1639670307
+   > account:             0xdA67a37371B5db31C20d0ED50e640A3969cc4d8F
+   > balance:             1.789179572346186346
+   > gas used:            233854 (0x3917e)
+   > gas price:           2 gwei
+   > value sent:          0 ETH
+   > total cost:          0.000467708 ETH
+
+   -------------------------------------
+   > Total cost:         0.000467708 ETH
+
+
+2_deploy_contracts.js
+=====================
+
+   Replacing 'Utils'
+   -----------------
+   > block number:        9825045
+   > block timestamp:     1639670313
+   > account:             0xdA67a37371B5db31C20d0ED50e640A3969cc4d8F
+   > balance:             1.787610876346186346
+   > gas used:            756835 (0xb8c63)
+   > gas price:           2 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00151367 ETH
+
+
+   Linking
+   -------
+   * Contract: Garantia <--> Library: Utils 
+
+   Replacing 'Garantia'
+   --------------------
+   > block number:        9825046
+   > block timestamp:     1639670366
+   > account:             0xdA67a37371B5db31C20d0ED50e640A3969cc4d8F
+   > balance:             1.783274016346186346
+   > gas used:            2168430 (0x21166e)
+   > gas price:           2 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00433686 ETH
+
+   -------------------------------------
+   > Total cost:          0.00585053 ETH
+
+
+Summary
+=======
+> Total deployments:   3
+> Final cost:          0.006318238 ETH
+
+
+
+
+
+Starting migrations...
+======================
+> Network name:    'rinkeby'
+> Network id:      4
+> Block gas limit: 29999943 (0x1c9c347)
+
+
+1_initial_migration.js
+======================
+
+   Replacing 'Migrations'
+   ----------------------
+   > transaction hash:    0xb0072edd271d5ef8d0d0a6213b05bd032809654117b605fe7461bbfd56971612
+   > Blocks: 1            Seconds: 16
+   > contract address:    0xdf53E20c423A4dC07EdB15e089A7951890E37240
+   > block number:        9825049
+   > block timestamp:     1639670414
+   > account:             0xdA67a37371B5db31C20d0ED50e640A3969cc4d8F
+   > balance:             1.78901170495301858
+   > gas used:            250154 (0x3d12a)
+   > gas price:           2.540736479 gwei
+   > value sent:          0 ETH
+   > total cost:          0.000635575393167766 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:     0.000635575393167766 ETH
+
+
+2_deploy_contracts.js
+=====================
+
+   Replacing 'Utils'
+   -----------------
+   > transaction hash:    0xe1e76b536089d2bcd0d2f83024010fc861e0ff7d236909f0d47e5cfb62c2f1d4
+   > Blocks: 1            Seconds: 15
+   > contract address:    0x6EB672dE8F94f3e93983c6A8658Bf955512b5021
+   > block number:        9825051
+   > block timestamp:     1639670444
+   > account:             0xdA67a37371B5db31C20d0ED50e640A3969cc4d8F
+   > balance:             1.786973566714168613
+   > gas used:            756835 (0xb8c63)
+   > gas price:           2.538926181 gwei
+   > value sent:          0 ETH
+   > total cost:          0.001921548196197135 ETH
+
+
+   Linking
+   -------
+   * Contract: Garantia <--> Library: Utils (at address: 0x6EB672dE8F94f3e93983c6A8658Bf955512b5021)
+
+   Replacing 'Garantia'
+   --------------------
+   > transaction hash:    0x1d7d6bcf4511bcc6c3d1da202d60db05d07c72b92987004d71155eabef1dd6d7
+   > Blocks: 1            Seconds: 4
+   > contract address:    0xd9A2F0263f80BE03872853D657559B292dcB27BF
+   > block number:        9825052
+   > block timestamp:     1639670459
+   > account:             0xdA67a37371B5db31C20d0ED50e640A3969cc4d8F
+   > balance:             1.780489370652253923
+   > gas used:            2554330 (0x26f9da)
+   > gas price:           2.538511493 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00648419606191469 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:     0.008405744258111825 ETH
+
+
+Summary
+=======
+> Total deployments:   3
+> Final cost:          0.009041319651279591 ETH
