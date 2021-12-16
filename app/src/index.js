@@ -314,6 +314,7 @@ const App = {
   }
 };
 
+
 window.App = App;
 
 // * Function that listens for any event that may be on the Front-end
@@ -325,18 +326,33 @@ window.addEventListener("load", function() {
     window.ethereum.enable(); // get permission to access accounts obtener 
     const status = document.getElementById("contentLog");
     status.innerHTML = "Conected to Metamask";
+
+    //To reload the web page after change Metamask account
+    window.ethereum.on('chainChanged', () => {
+      window.location.reload();
+    }); 
+       window.ethereum.on('accountsChanged', () => {
+      window.location.reload();
+    });
     
+
+    // use MetaMask's provider
+    App.start();
+
   } else {
     console.warn(
-      "No web3 detected. Falling back to http://127.0.0.1:7545. You should remove this fallback when you deploy live",
+      "No web3 detected.",
     );
+
+    alert("You need to install MetaMask Wallet!");
     // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-    App.web3 = new Web3(
-      new Web3.providers.HttpProvider("http://127.0.0.1:7545"),
-    );
+    //App.web3 = new Web3(
+    //  new Web3.providers.HttpProvider("http://127.0.0.1:7545"),
+    //);
+    
     //status.innerHTML = "Conectado";
   }
 
-  App.start();
+ // App.start();
   
 });

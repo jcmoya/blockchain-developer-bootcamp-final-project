@@ -1,24 +1,45 @@
 # Activate Warranty for consume products
 
-**Create a Decentralice Application(DApp).**
+**Summary**
 
-Summary:
-The theme for the Dapp is a system that activates in the BLockchain the guarantee of a product dependent on the Serial number and on the name of the product. Activating the Guarantee from the moment it is uploaded, and ending once two years have elapsed. In this way, product buyers could justify their purchase and have access to the Manufacturer's Warranty.
+The theme for the Dapp is a system that activates in the BLockchain the warranty of a product, You can justify that the product is still under warranty. Using the Serial number, and the name of the product. 
+Activating the guarantee from the moment the product is uploaded until the next two years. In this way, product buyers could justify their purchase and have access to the Manufacturer's Warranty.
 
-Within the code you can view more comments for a better understanding of the application.
+**Quick Overview**
 
- -Dependencies and Aplications need it to run the Dapp:
+In the Apllication there are 3 diferents areas to understand:
+
+1 Main area, where the table with all the Uploaded Products are visible. And the option to Upload a Product using a Serial Number and a Name
+
+2 Check Warranty Area, where is possible to check if an existing Product is Still under the 2 years Warranty. 
+In the Bottom of the Screen there is a Log view to know the Address that is conected to the Dapp, and see some Status during interaction.
+
+3 Circuit Breaker, Paused and Unpaused the contract, so no one can upload any Product to the contract in case any security reason, and Activate it again if need it. This option only the Owner of the contract can do it. You can see a log message to check if you are the Owner or not.
+
+
+
+ 
+
+# Testing the DApp in Rinkeby Network
+
+The Front end is deployed on a Repository using Github Pages
+
+https://jcmoya.github.io/frontEnd_Dapp_Warranty/
+
+
+The Smart Contract is available it was deployed in the Rinkeby network using Infura,  address 0xxxxx
+
+
+# Steps for testing the DApp in a Local enviorment
+
+-Dependencies and Aplications need it to run the Dapp:
 
 Node Package management (npm).
 Solidity, compiler used "0.5.8+commit.23d335f2.Emscripten.clang"
-
 Truffle: To Deploy Smart Contract.
-
 Ganache: For using a Local Blockchain and do some tests.
-
 Metamask: To interact with the BLockchaing and be able to sing transactions
 
-# Steps for testing the DApp in a local enviorment
 ## 1. Clone the project
 `https://github.com/jcmoya/blockchain-developer-bootcamp-final-project`
 
@@ -29,16 +50,16 @@ Metamask: To interact with the BLockchaing and be able to sing transactions
 $ npm install
 ```
 
-## 3. Arrancar Ganache
+## 3. Starts Ganache
+
+Run Ganache
 ```
 ./ganache-2.5.4-linux-x86_64.AppImage
 ```
 
-## Using Open Zeppelin Libraries
-For using external Libraries i am going to use the Pausable and Owner contracts from Open Zeppelin. I did not think was need it to deploy them on my contract,IFor using them in the proyect you need to do next steps:
+## 4. Using Open Zeppelin Libraries
 
-
-1º Install Open Zeppelin Dependencies inside the proyect folder in this way:
+Install Open Zeppelin Dependencies inside the proyect folder in this way:
 
 ```
  npm install @openzeppelin/contracts
@@ -53,138 +74,47 @@ Also i used an existing librarie and is already modified to use only some specif
 
 ## 4. Compile and Deploy contacts
 
-In the project folder use. Compile contracts:
+In the project folder use, Compile contracts:
 
 `$ truffle compile` 
-
-Compiling your contracts...
-===========================
-> Compiling ./contracts/Garantia.sol
-> Compiling ./contracts/Utils.sol
-> Artifacts written to /home/jules/Escritorio/Github/blockchain-developer-bootcamp-final-project/build/contracts
-> Compiled successfully using:
-   - solc: 0.8.10+commit.fc410830.Emscripten.clang
-
 
 Deploy contract in Ganache: 
 
 `$ truffle migrate --reset` 
-```
 
-jules@jules:~/Escritorio/Github/blockchain-developer-bootcamp-final-project$ sudo truffle migrate --reset
-
-Compiling your contracts...
-===========================
-> Everything is up to date, there is nothing to compile.
-
-
-
-Starting migrations...
-======================
-> Network name:    'ganache'
-> Network id:      5777
-> Block gas limit: 6721975 (0x6691b7)
-
-
-1_initial_migration.js
-======================
-
-   Replacing 'Migrations'
-   ----------------------
-   > transaction hash:    0x88429ad33f721190b97514fed61d3f472c07e75e593371e627e42a12698d16bd
-   > Blocks: 0            Seconds: 0
-   > contract address:    0x13936d9db7d84660e69C69f745b4f5eAC9408bca
-   > block number:        5
-   > block timestamp:     1638023681
-   > account:             0xFA2060537647f77Fb3556b2A5580914dFD0248De
-   > balance:             99.98336824
-   > gas used:            248854 (0x3cc16)
-   > gas price:           20 gwei
-   > value sent:          0 ETH
-   > total cost:          0.00497708 ETH
-
-
-   > Saving migration to chain.
-   > Saving artifacts
-   -------------------------------------
-   > Total cost:          0.00497708 ETH
-
-
-2_deploy_contracts.js
-=====================
-
-   Deploying 'Utils'
-   -----------------
-   > transaction hash:    0xc150102e3964dda48d7f3351c0a2e3e34e0486ffdbf6aa435618e10f0c9121f0
-   > Blocks: 0            Seconds: 0
-   > contract address:    0x79efD586841e42C0973535056927d9F2e9BDFFbb
-   > block number:        7
-   > block timestamp:     1638023682
-   > account:             0xFA2060537647f77Fb3556b2A5580914dFD0248De
-   > balance:             99.96738128
-   > gas used:            756835 (0xb8c63)
-   > gas price:           20 gwei
-   > value sent:          0 ETH
-   > total cost:          0.0151367 ETH
-
-
-   Linking
-   -------
-   * Contract: Garantia <--> Library: Utils (at address: 0x79efD586841e42C0973535056927d9F2e9BDFFbb)
-
-   Deploying 'Garantia'
-   --------------------
-   > transaction hash:    0x4e5b2c5d51e7a8c91e0caaddf5b6375687f3c335298b6bcf4a25080e1acd790e
-   > Blocks: 0            Seconds: 0
-   > contract address:    0x3F13E3A519A8DfaA9cc87a282492F1434938506F
-   > block number:        8
-   > block timestamp:     1638023689
-   > account:             0xFA2060537647f77Fb3556b2A5580914dFD0248De
-   > balance:             99.91865284
-   > gas used:            2436422 (0x252d46)
-   > gas price:           20 gwei
-   > value sent:          0 ETH
-   > total cost:          0.04872844 ETH
-
-
-   > Saving migration to chain.
-   > Saving artifacts
-   -------------------------------------
-   > Total cost:          0.06386514 ETH
-
-
-Summary
-=======
-> Total deployments:   3
-> Final cost:          0.06884222 ETH
-
-```
 ## 5. Arrancar Front End
-Desde la carpeta app, para arrancar el servidor usar lo siguiente:
+From folder app, right on a terminal:
 `$ npm run dev`
 ```
 
-function addProduct ( string memory _name, string memory _serialNumber){
+#Test
 
-}
+There are 5 Tests done for the main contract, using truffle test in a terminal:
+
+```
+  Contract: Garantia
+    ✓ Check that the Builder's Guarantees are added (155ms)
+*****************************************************************
+Product: Dell Computer-----Serial number: ES110004533---Starts Date: 2019-12-12
+*****************************************************************
+*****************************************************************
+Product: Play Station 4-----Serial number: FR4332220044---Starts Date: 2019-12-12
+*****************************************************************
+*****************************************************************
+Product: Huawei P20-----Serial number: ES32754451---Starts Date: 2021-12-16
+*****************************************************************
+    ✓ Add new Warranty.. (1822ms)
+    ✓ Check the validity of the Guarantees (212ms)
+Resultado: Error: Returned error: VM Exception while processing transaction: revert You must introduce a Name and a Serial Number -- Reason given: You must introduce a Name and a Serial Number.
+    ✓ Error, No Article name (2881ms)
+Resultado: Error: Returned error: VM Exception while processing transaction: revert Serial number already activated!! -- Reason given: Serial number already activated!!.
+    ✓ Error, Serial number already exist on the Table (240ms)
 
 
-function checkWarranty(string memory _serialNumber) public  view returns ( string memory) {
-    //Checks the the serial number is correct
-  
-}
+  5 passing (6s)
+
+```
 
 
-function getInitialYear(string memory _serialNumber) public  view returns ( uint) {
-    //Checks the Serial number is coorect and the Year where was bought
- 
-}
-
-
-function getEndDate(string memory _serialNumber) public  view returns ( uint) {
-    
-    //Check serial number exist and is valid and the end of the warranty, initially warranty = 2 years
-   
- 
-}
+Public Ethereum Address for NFT : 0x6644bBd4D99DD18aCcb3EF69229f6E293509FFE9
 

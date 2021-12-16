@@ -14,19 +14,19 @@ const articulo3 = "Huawei P20";
 const numSerie3 = "ES32754451";
 
 
-//Comprueba los dos Articulos iniciales del constructo.
-  it("Comprobar que se añade las Garantias del Constructor", async () => {
+//Check the initial Products Loads.
+  it("Check that the Builder's Guarantees are added", async () => {
 
     const value = await garantiaContrato.getNombre.call(numSerie1);
-    assert.equal(value, "Trona Chicco", "No se ha creado correctamente Trona Chicco")
+    assert.equal(value, "Dell Computer", "Dell computer Product has not been added")
    
     const value2 = await garantiaContrato.getNombre.call(numSerie2);
-    assert.equal(value2, "Play Station 4", "No se ha creado correctamente Play Station 4")
+    assert.equal(value2, "Play Station 4", "Play Station 4 has not been added")
     
   });
 
-//Añade un nuevo articulo y muestra el listado entero de Garantias.
-  it("Añadir una nueva Garantia", async () => {
+  //Add a new article and show the entire list of Guarantees.
+  it("Add new Warranty..", async () => {
 
       
     await garantiaContrato.addProducto(articulo3, numSerie3);
@@ -45,42 +45,42 @@ const numSerie3 = "ES32754451";
       var _fechaFin =listaProductos[7];
 
       console.log("*****************************************************************");
-      console.log("Producto: "+_name + "-----Num Serie: " + _numSerie + "---Inicio: "+_yearInicio + "-" + _mesInicio + "-" + _diaInicio);
+      console.log("Product: "+_name + "-----Serial number: " + _numSerie + "---Starts Date: "+_yearInicio + "-" + _mesInicio + "-" + _diaInicio);
       console.log("*****************************************************************");
-      //comprobaciones
-      assert.equal(_id , i - 1, "El valor Id no corresponde");
-      assert.equal(_address , accounts[0]               , "El Address no corresponde");
-      assert.equal(_name , listaProductos.nombreProducto, "Nombre no corresponde");
-      assert.equal(_numSerie , listaProductos.numSerie  , "Número de Serie no corresponde");
-      assert.equal(_yearInicio ,parseInt(listaProductos.yearInicio),"Año inicio no corresponde");
-      assert.equal(_mesInicio , parseInt(listaProductos.mesInicio), "Mes inicio no corresponde");
-      assert.equal(_diaInicio , parseInt(listaProductos.diaInicio), "Día inicio no corresponde");
-      assert.equal(_fechaFin  ,  parseInt(listaProductos.fechaFin), "Fecha fin no corresponde");
+      //Checks on Dates and Id
+      assert.equal(_id , i - 1, "Id Product is wrong");
+      assert.equal(_address , accounts[0]               , "Addres account is not correct");
+      assert.equal(_name , listaProductos.nombreProducto, "Name of product wrong");
+      assert.equal(_numSerie , listaProductos.numSerie  , "Serial number wrong");
+      assert.equal(_yearInicio ,parseInt(listaProductos.yearInicio),"Start Year wrong");
+      assert.equal(_mesInicio , parseInt(listaProductos.mesInicio), "Start month wrong");
+      assert.equal(_diaInicio , parseInt(listaProductos.diaInicio), "Star day wrong");
+      assert.equal(_fechaFin  ,  parseInt(listaProductos.fechaFin), "Ends date wrong");
 
     }
 
     
   });
 
-//Comprueba la validez de las Garantias, si esta activa o no.
-  it("Comprobar Validez Garantias", async () => {
+//Check the validity of the Guarantees, if it is active or expired.
+  it("Check the validity of the Guarantees", async () => {
 
     
-    //Garantias Caducadas
+    //Warranty Expired
     const value = await garantiaContrato.checkGarantia(numSerie1);
-    assert.equal(value, "Caducada", "Producto 1, debiera estar caducado")
+    assert.equal(value, "Expired", "Product 1, must be expired")
     const value1 = await garantiaContrato.checkGarantia(numSerie2);
-    assert.equal(value1, "Caducada", "Producto 2, debiera estar caducado");
+    assert.equal(value1, "Expired", "Product 2, must be expired");
 
-    //Garantia Activa
+    //Warranty Active
     const value2 = await garantiaContrato.checkGarantia(numSerie3);
-    assert.equal(value2, "Activa", "Producto 3, debiera estar Activo");
+    assert.equal(value2, "Active", "Product 3, must be Active");
 
     
   });
 
-  //Simula el error de no introducr el campo Nombre Articulo
-  it("Error, No introducir Nombre Artículo", async () => {
+  //Simulates the error of not entering the Article Name field
+  it("Error, No Article name", async () => {
 
     const articulo4 = "";
     const numSerie4 = "ES32754450";
@@ -96,8 +96,8 @@ const numSerie3 = "ES32754451";
  
   });
 
- // Simula el error de introducir un numero de serie existente
-  it("Error, Introducir número de Serie existente", async () => {
+ // Simulates the error of entering an existing serial number
+  it("Error, Serial number already exist on the Table", async () => {
 
     const articulo4 = "Dell";
     const numSerie4 = "ES32754451";

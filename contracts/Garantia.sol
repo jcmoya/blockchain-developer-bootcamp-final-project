@@ -1,20 +1,27 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.10;
 
-// Using next libraries:
-
-// Ownable: to be able to save the address of the one who deploys the contract Open Zeppelin and Library Utils to be able to format the Date
-// Pausable: Emergency stop mechanism of the contract, for a possible damage reduction.
-// Utils: used to be able to give the format dates.
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 import "./Utils.sol";
 
-// Warranty Contract. Inherits from contract Ownable and Pausable
-/* @title Garantia */
+/**
+ * @title  Warranty Activation for Manufacture Products
+ * @author Julio César Moya
+ * @dev    This contract has been developed for academic purposes
+ *         Import Open Zeppelin contracts 
+ *         Pausable.sol: Emergency stop mechanism of the contract, for a possible damage reduction.
+ *         Ownable.sol: To be able to save the address of the one who deploys the contract Open Zeppelin and Library Utils to be able to format the Date
+ *         
+ *         And Using Utils.sol as External Library for format Dates
+ * @notice Activate a Product Warranty based on the Serial Number and the Name
+ *         It will give you 2 years of hypothetic Warranty, so will be possible to repair de Product.
+ *         Also is possible to check, based on the Serial number, if the Warranty is active or not based on the 2 years.
+ *         
+ */
 contract Garantia is Ownable, Pausable{
 
-    // Data Model
+    /// @dev Data Model for a Productc
     struct  Producto {
         uint id;
         address comprador;
@@ -28,19 +35,21 @@ contract Garantia is Ownable, Pausable{
   
     }
 
-    //Global Variable
-    // Counter of the number of Products that are added to the contract
+    ///@dev Global Variable, Counter of the number of Products that are added to the contract
     uint public  productosCount;
     
-    // Mapping: given an uint stored a Producto
+    /// @dev Mapping: given an uint stored a Producto
     mapping (uint => Producto) public productos;
-    // Mapping: given a String, stored a booleano
+
+    /// @dev  Mapping: given a String, stored a booleano
     mapping (string => bool)  numSeries;
-    //Mapping: given a String stored a uint
+
+    /// @dev Mapping: given a String stored a uint
     mapping (string => uint)  numSeriesCheck;
 
-/* @dev To add a product warranty to the contract
-* @param _name, Article Name.
+/**
+* @dev To add a product warranty to the contract
+* @param _nombre, Article Name.
 * @param _numSerie, Serial number of the Article.
 * Modifier, whenNotPaused of the Pausable contract, in case of Pausable, this function cannot be executed.
 */
@@ -86,8 +95,8 @@ contract Garantia is Ownable, Pausable{
       
     }
 
-/* @dev Contract constructor, only  is called once, by the person who deploys the contract
-// Initially are 2 Dummies Products Load
+/** @dev Contract constructor, only  is called once, by the person who deploys the contract
+* Initially are 2 Dummies Products Load
  */
  
 constructor ()  {
@@ -97,7 +106,7 @@ constructor ()  {
 	//owner = msg.sender;
 }
 
-/* @dev Fallback, in the hypothetical case that the contract is called wrongly, and a payment is made
+/** @dev Fallback, in the hypothetical case that the contract is called wrongly, and a payment is made
  * And something went wrong, this function would be called and the payment would be reversed
  */
 
@@ -105,14 +114,14 @@ fallback () external payable {
    revert("Something went wrong, recover your money") ; 
 }   
 
-/* @dev Receive, in the hypothetical case that the contract is called wrongly, and a payment is made
+/** @dev Receive, in the hypothetical case that the contract is called wrongly, and a payment is made
  * And something went wrong, this function would be called and the payment would be reversed
  */
  receive() external payable {
         // custom function code
     }
 
-/* @ dev Checks if the Warranty has exceeded two years since its activation.
+/** @dev Checks if the Warranty has exceeded two years since its activation.
 * @param _numSerie, Article serial number. Check that numSerie is in the list.
 * @return String, Returns Active or Expired
 */
@@ -129,7 +138,7 @@ function checkGarantia(string memory _numSerie) public  view returns ( string me
   
 }
 
-/* @dev Checks if the Warranty has exceeded two years since its activation.
+/** @dev Checks if the Warranty has exceeded two years since its activation.
 * @param _numSerie, Article serial number. Check that numSerie is in the list.
 * @return String, Returns Active or Expired
 */
@@ -140,12 +149,10 @@ function getNombre(string memory _numSerie) public  view returns ( string memory
  
 }
 
-/* @dev Get Product Start Year if necessary
+/** @dev Get Product Start Year if necessary
 * @param _numSerie, Article serial number. Check that numSerie is in the list.
 * @return Uint, with Start Year
 */
-
-
 function getYearInicio(string memory _numSerie) public  view returns ( uint) {
     require(numSeries[_numSerie], "Serial numner no valid, please introduce an existence one");
  
@@ -153,7 +160,7 @@ function getYearInicio(string memory _numSerie) public  view returns ( uint) {
  
 }
 
-/* @dev Get Product Start Month if necessary
+/** @dev Get Product Start Month if necessary
 * @param _numSerie, Article serial number. Check that numSerie is in the list.
 * @return Uint, with Start Month Year
 */
@@ -164,7 +171,7 @@ function getMesInicio(string memory _numSerie) public  view returns ( uint) {
  
 }
 
-/* @dev Get the Product Start Day if necessary
+/** @dev Get the Product Start Day if necessary
 * @param _numSerie, Article serial number. Check that numSerie is in the list.
 * @return Uint, with the Start Day
 */
@@ -176,12 +183,10 @@ function getDiaInicio(string memory _numSerie) public  view returns ( uint) {
 }
 
 
-/* @dev Get End date  of the Product if necessary
+/** @dev Get End date  of the Product if necessary
 * @param _numSerie, Article serial number. Check that numSerie is in the list.
 * @return Uint, with End date on Start date + 104 weeks
 */
-
-
 function getFechaFin(string memory _numSerie) public  view returns ( uint) {
     require(numSeries[_numSerie], "Serial numner no valid, please introduce an existence one");
  
@@ -190,12 +195,12 @@ function getFechaFin(string memory _numSerie) public  view returns ( uint) {
 }
 
 
- /// Pause the contract //Call _pause fucntion on Pausable.sol contract
+ /// @dev Pause the contract //Call _pause fucntion on Pausable.sol contract
     function pause() public  onlyOwner{
         _pause(); 
     }
 
-    /// Unpause the contract //Call _unpause fucntion on Pausable.sol contract
+/// @dev Unpause the contract //Call _unpause fucntion on Pausable.sol contract
     function unpause() public  onlyOwner{
         _unpause();
     }
