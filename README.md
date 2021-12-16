@@ -17,9 +17,8 @@ In the Bottom of the Screen there is also a Log view to know the Address that is
 3 Circuit Breaker, Paused and Unpaused the contract, is available on the right upper side, so no one can upload any Product to the contract in case any security reason, and Activate it again if need it. This option only the Owner of the contract can do it. You can see a log message to check if you are the Owner or not.
 
 # Directory Structure
-
 📦blockchain-developer-bootcamp-final-project
-   ┣ 📂app
+ ┣ 📂app
  ┃ ┣ 📂src
  ┃ ┃ ┣ 📜index.html
  ┃ ┃ ┗ 📜index.js
@@ -42,7 +41,8 @@ In the Bottom of the Screen there is also a Log view to know the Address that is
  ┃ ┣ 📜1_initial_migration.js
  ┃ ┗ 📜2_deploy_contracts.js
  ┣ 📂test
- ┃ ┃ ┗ 📜garantia.js
+ ┃ ┣ 📜.gitkeep
+ ┃ ┗ 📜garantia.js
  ┣ 📜README.md
  ┣ 📜avoiding_common_attacks.md
  ┣ 📜deployed_address.txt
