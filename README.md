@@ -9,6 +9,7 @@ Activating the guarantee from the moment the product is uploaded until the next 
 
 In the Apllication there are 3 diferents areas to understand:
 
+<<<<<<< HEAD
 1 Main area, where the table with all the Uploaded Products are visible. And the option to Upload a Product using a Serial Number and a Name.
 
 2 Check Warranty Area, where is possible to check if an existing Product is Still under the 2 years Warranty Acive or Expired.
@@ -53,6 +54,17 @@ In the Bottom of the Screen there is also a Log view to know the Address that is
 
 
  Video showing Dapp:
+=======
+1 Main area, where the table with all the Uploaded Products are visible. And the option to Upload a Product using a Serial Number and a Name
+
+2 Check Warranty Area, where is possible to check if an existing Product is Still under the 2 years Warranty. 
+In the Bottom of the Screen there is a Log view to know the Address that is conected to the Dapp, and see some Status during interaction.
+
+
+3 Circuit Breaker, Paused and Unpaused the contract, so no one can upload any Product to the contract in case any security reason, and Activate it again if need it. This option only the Owner of the contract can do it. You can see a log message to check if you are the Owner or not.
+
+
+
 
 # Testing the DApp in Rinkeby Network
 
