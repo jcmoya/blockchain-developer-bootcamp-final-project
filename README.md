@@ -7,53 +7,8 @@ Activating the guarantee from the moment the product is uploaded until the next 
 
 **Quick Overview**
 
-In the Apllication there are 3 diferents areas to understand:
+In the Apllication there are 3 diferents areas:
 
-1 Main area, where the table with all the Uploaded Products are visible. And the option to Upload a Product using a Serial Number and a Name.
-
-2 Check Warranty Area, where is possible to check if an existing Product is Still under the 2 years Warranty Acive or Expired.
-In the Bottom of the Screen there is also a Log view to know the Address that is conected to the Dapp, and see some Status during Contract interaction.
-
-3 Circuit Breaker, Paused and Unpaused the contract, is available on the right upper side, so no one can upload any Product to the contract in case any security reason, and Activate it again if need it. This option only the Owner of the contract can do it. You can see a log message to check if you are the Owner or not.
-
-# Directory Structure
-📦blockchain-developer-bootcamp-final-project
- ┣ 📂app
- ┃ ┣ 📂src
- ┃ ┃ ┣ 📜index.html
- ┃ ┃ ┗ 📜index.js
- ┃ ┣ 📜package-lock.json
- ┃ ┣ 📜package.json
- ┃ ┗ 📜webpack.config.js
- ┣ 📂build
- ┃ ┗ 📂contracts
- ┃ ┃ ┣ 📜Context.json
- ┃ ┃ ┣ 📜Garantia.json
- ┃ ┃ ┣ 📜Migrations.json
- ┃ ┃ ┣ 📜Ownable.json
- ┃ ┃ ┣ 📜Pausable.json
- ┃ ┃ ┗ 📜Utils.json
- ┣ 📂contracts
- ┃ ┣ 📜Garantia.sol
- ┃ ┣ 📜Migrations.sol
- ┃ ┗ 📜Utils.sol
- ┣ 📂migrations
- ┃ ┣ 📜1_initial_migration.js
- ┃ ┗ 📜2_deploy_contracts.js
- ┣ 📂test
- ┃ ┣ 📜.gitkeep
- ┃ ┗ 📜garantia.js
- ┣ 📜README.md
- ┣ 📜avoiding_common_attacks.md
- ┣ 📜deployed_address.txt
- ┣ 📜design_pattern_decisions.md
- ┣ 📜package-lock.json
- ┣ 📜package.json
- ┗ 📜truffle-config.js
-
-
- Video showing Dapp:
-=======
 1 Main area, where the table with all the Uploaded Products are visible. And the option to Upload a Product using a Serial Number and a Name
 ![Main](others/MainArea.png)
 
@@ -64,6 +19,13 @@ In the Bottom of the Screen there is a Log view to know the Address that is cone
 3 Circuit Breaker, Paused and Unpaused the contract, so no one can upload any Product to the contract in case any security reason, and Activate it again if need it. This option only the Owner of the contract can do it. You can see a log message to check if you are the Owner or not.
 ![Main3](others/3area.png)
 
+
+# Directory Structure
+![Directory](others/FolderTree.png)
+
+
+ Video showing Dapp:
+=======
 
 # Smart Contracts points
 
