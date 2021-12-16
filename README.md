@@ -17,6 +17,7 @@ In the Bottom of the Screen there is a Log view to know the Address that is cone
 ![Main2](others/SecondArea.png)
 
 3 Circuit Breaker, Paused and Unpaused the contract, so no one can upload any Product to the contract in case any security reason, and Activate it again if need it. This option only the Owner of the contract can do it. You can see a log message to check if you are the Owner or not.
+
 ![Main3](others/3area.png)
 
 
