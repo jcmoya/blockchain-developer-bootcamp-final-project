@@ -9,7 +9,6 @@ Activating the guarantee from the moment the product is uploaded until the next 
 
 In the Apllication there are 3 diferents areas to understand:
 
-<<<<<<< HEAD
 1 Main area, where the table with all the Uploaded Products are visible. And the option to Upload a Product using a Serial Number and a Name.
 
 2 Check Warranty Area, where is possible to check if an existing Product is Still under the 2 years Warranty Acive or Expired.
@@ -56,53 +55,57 @@ In the Bottom of the Screen there is also a Log view to know the Address that is
  Video showing Dapp:
 =======
 1 Main area, where the table with all the Uploaded Products are visible. And the option to Upload a Product using a Serial Number and a Name
+![Main](others/MainArea.png)
 
 2 Check Warranty Area, where is possible to check if an existing Product is Still under the 2 years Warranty. 
 In the Bottom of the Screen there is a Log view to know the Address that is conected to the Dapp, and see some Status during interaction.
-
+![Main2](others/SecondArea.png)
 
 3 Circuit Breaker, Paused and Unpaused the contract, so no one can upload any Product to the contract in case any security reason, and Activate it again if need it. This option only the Owner of the contract can do it. You can see a log message to check if you are the Owner or not.
+![Main3](others/3area.png)
 
+
+# Smart Contracts points
+
+- [Avoiding Common Attacks](./avoiding_common_attacks.md)
+- [Design Pattern Decisions](./design_pattern_decisions.md)
 
 
 
 # Testing the DApp in Rinkeby Network
 
+The Smart Contract is available and deployed in the Rinkeby network using Infura
 The Front end is deployed on a Repository using Github Pages
 
 https://jcmoya.github.io/frontEnd_Dapp_Warranty/
 
 
-The Smart Contract is available and deployed in the Rinkeby network using Infura,  address 0xxxxx
+To see more details about Contract Deployment:
+[Rinkeby Truffle](others/Rinkeby_deploy_log)
 
 
 # Steps for testing the DApp in a Local enviorment
 
--Dependencies and Aplications need it to run the Dapp:
+Dependencies and Aplications need it to run the Dapp:
 
-Node Package management (npm).
-Solidity, compiler used "0.5.8+commit.23d335f2.Emscripten.clang"
-Truffle: To Deploy Smart Contract.
-Ganache: For using a Local Blockchain and do some tests.
-Metamask: To interact with the BLockchaing and be able to sing transactions
+- Node Package management (npm).
+- Solidity, compiler used "0.5.8+commit.23d335f2.Emscripten.clang"
+- Truffle: To Deploy Smart Contract.
+- Ganache: For using a Local Blockchain and do some tests.
+- Metamask: To interact with the BLockchaing and be able to sing transactions
 
 **1. Clone the project**
 
 `https://github.com/jcmoya/blockchain-developer-bootcamp-final-project`
 
 
-**2. Install open Zeppeling libraries in case are need it**
-```
-$ npm install @openzeppelin/contracts 
-```
-
-**3. Starts Ganache**
+**2. Start Ganache**
 Run Ganache
 ```
 ./ganache-2.5.4-linux-x86_64.AppImage
 ```
 
-**4. Using Open Zeppelin Libraries**
+**3. Using Open Zeppelin Libraries**
 
 Install Open Zeppelin Dependencies inside the proyect folder in this way:
 
@@ -113,18 +116,20 @@ Install Open Zeppelin Dependencies inside the proyect folder in this way:
 
 **4. Compile and Deploy contacts**
 
-
 Deploy contract in Ganache: 
 
 `$ truffle migrate ` 
 
 **5. Arrancar Front End**
-In folder app, right on a terminal and write next:
+
+In folder app, open a terminal and write next:
 `$ npm install`
+
+and launch the web
 `$ npm run dev`
 
 
-# Test
+# Test Phase
 
 There are 5 Tests done for the main contract, using truffle test in a terminal will launch:
 
@@ -153,5 +158,5 @@ Resultado: Error: Returned error: VM Exception while processing transaction: rev
 ```
 
 
-Public Ethereum Address for NFT : 0x6644bBd4D99DD18aCcb3EF69229f6E293509FFE9
+Public Ethereum Address for NFT Certification : 0x6644bBd4D99DD18aCcb3EF69229f6E293509FFE9
 
