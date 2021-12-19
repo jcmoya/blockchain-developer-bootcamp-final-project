@@ -1,0 +1,7 @@
+node_modules
+dist
+others
+.env
+.vscode
+.secret
+.notes
