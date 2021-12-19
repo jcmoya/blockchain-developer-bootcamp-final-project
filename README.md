@@ -83,6 +83,10 @@ Deploy contract in Ganache:
 
 `$ truffle migrate ` 
 
+Truufle confing is set to this values:
+host: "127.0.0.1",
+port: 7545,
+
 **5. Arrancar Front End**
 
 In folder app, open a terminal and write next:
@@ -91,7 +95,9 @@ In folder app, open a terminal and write next:
 and launch the web
 `$ npm run dev`
 
-For Testing Circuit Breaker and Pause the contract, please use the same account that deployed the contract in truffle
+run a browser -- http://localhost:8080/
+
+For Testing Circuit Breaker and Pause the contract, please use the same account that deployed the contract in ganache
 
 # Test Phase
 
