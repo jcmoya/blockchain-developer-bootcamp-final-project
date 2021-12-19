@@ -17,6 +17,11 @@
  * phrase from a file you've .gitignored so it doesn't accidentally become public.
  *
  */
+
+ require('dotenv').config()
+ const MNEMONIC= process.env.MNEMONIC
+ const INFURA_API_KEY = process.env.INFURA_API_KEY
+
 /* Uncomment for deploy with Infura in Rinkeby
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const infuraURL = 'https://rinkeby.infura.io/v3/e282ff3ab2ae4eceaa95c0e2701a25a4';
@@ -47,12 +52,12 @@ module.exports = {
       port: 7545,
       network_id: "*" // Match any network id
     },
-    /*
+    
     rinkeby: {
-      provider: () => new HDWalletProvider(mnemonic, infuraURL),
+      provider: () => new HDWalletProvider(MNEMONIC, INFURA_API_KEY),
       network_id: 4,          // Rinkeby's network id
       gas: 5500000,        
-    },*/
+    },
     // Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port

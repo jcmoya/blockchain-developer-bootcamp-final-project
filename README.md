@@ -25,8 +25,9 @@ In the Bottom of the Screen there is a Log view to know the Address that is cone
 ![Directory](others/FolderTree.png)
 
 
- Video showing Dapp:
-=======
+# Video showing Dapp: 
+https://youtu.be/nmPCoRxRKz0
+
 
 # Smart Contracts points
 
@@ -34,11 +35,10 @@ In the Bottom of the Screen there is a Log view to know the Address that is cone
 - [Design Pattern Decisions](./design_pattern_decisions.md)
 
 
-
-# Testing the DApp in Rinkeby Network
+# Testing DApp in Rinkeby Network
 
 The Smart Contract is available and deployed in the Rinkeby network using Infura
-The Front end is deployed on a Repository using Github Pages
+The Front end is deployed on a Repository using Github Pages:
 
 https://jcmoya.github.io/frontEnd_Dapp_Warranty/
 
@@ -91,6 +91,7 @@ In folder app, open a terminal and write next:
 and launch the web
 `$ npm run dev`
 
+For Testing Circuit Breaker and Pause the contract, please use the same account that deployed the contract in truffle
 
 # Test Phase
 
