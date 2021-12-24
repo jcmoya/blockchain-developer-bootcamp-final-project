@@ -2,8 +2,10 @@
 
 **Summary**
 
-The theme for the Dapp is a system that activates in the BLockchain the warranty of a product, You can justify that the product is still under warranty. Using the Serial number, and the name of the product. 
-Activating the guarantee from the moment the product is uploaded until the next two years. In this way, product buyers could justify their purchase and have access to the Manufacturer's Warranty.
+The theme for the Dapp is a system that activates in the BLockchain the warranty of a product, You can justify that the product is still under warranty Using the Serial number for the product (using it as Unique I=), and the name of the product. 
+Activating the guarantee from the moment the product is uploaded until the next two years, after that period the warranty will expired. In this way, product buyers could justify their purchase and have access to the Manufacturer's Warranty.
+
+PD: I took 2 years as generic world wide period, but that time could be in reality diferent
 
 **Quick Overview**
 
