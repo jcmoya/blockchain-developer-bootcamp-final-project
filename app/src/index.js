@@ -19,7 +19,7 @@ const App = {
   start: async function() {
     const { web3 } = this;
     console.info("App.start");
-    loader = $("#loader");
+    //loader = $("#loader");
     content = $("#content");
     
     
@@ -35,7 +35,7 @@ const App = {
       
       
       content.show();
-      loader.hide();
+      //loader.hide();
       // Get Metamask account that is in use
       var  accounts = await web3.eth.getAccounts();
       this.account = accounts[0];
@@ -64,7 +64,7 @@ const App = {
   //*  
   
   cargarTabla: async function()  {
-    loader.show();
+    //loader.show();
 
     var productosResults = $("#productosResults");
     productosResults.children().remove() ; 
@@ -106,7 +106,7 @@ const App = {
       });
     } 
 
-    loader.hide();
+   // loader.hide();
   },
 
   //*

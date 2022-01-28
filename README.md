@@ -63,7 +63,7 @@ Dependencies and Aplications need it to run the Dapp:
 
 **1. Clone the project**
 
-`https://github.com/jcmoya/blockchain-developer-bootcamp-final-project`
+`git clone https://github.com/jcmoya/blockchain-developer-bootcamp-final-project`
 
 
 **2. Start Ganache**
