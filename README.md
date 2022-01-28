@@ -42,7 +42,7 @@ https://youtu.be/nmPCoRxRKz0
 # Testing DApp in Rinkeby Network
 
 The Smart Contract is available and deployed in the Rinkeby network using Infura
-The Front end is deployed on a Repository using Github Pages:
+The Front end is deployed on a Repository using Github Pages. Please use Firefox as a WebBrowser:
 
 https://jcmoya.github.io/frontEnd_Dapp_Warranty/
 
