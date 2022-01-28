@@ -7,7 +7,7 @@ const App = {
   web3: null,
   account: null,
   meta: null,
-  loader: null,
+  //loader: null,
   myOwner:null,
   content: null,
   isPaused: false,
@@ -22,6 +22,7 @@ const App = {
     loader = $("#loader");
     content = $("#content");
     
+    
     try {
       //Get Contract instance
       const networkId = await web3.eth.net.getId();
@@ -31,7 +32,8 @@ const App = {
         garantiaArtifact.abi,
         deployedNetwork.address,
       );
-
+      
+      
       content.show();
       loader.hide();
       // Get Metamask account that is in use
